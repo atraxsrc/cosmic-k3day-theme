@@ -1,0 +1,41 @@
+# 256-colour codes nearest the K3 Day palette on pearl (lsd 1.0.0 does not accept
+# #hex here): 59 steel, 130 terracotta, 130 orange, 59 mist, 59 khaki,
+# 59 pewter, 241 muted, 246 dim.
+user: 59
+group: 241
+permission:
+  read: 241
+  write: 59
+  exec: 59
+  exec-sticky: 59
+  no-access: 246
+  octal: 59
+  acl: 59
+  context: 59
+date:
+  hour-old: 59
+  day-old: 59
+  older: 246
+size:
+  none: 246
+  small: 59
+  medium: 59
+  large: 130
+inode:
+  valid: 59
+  invalid: 130
+links:
+  valid: 59
+  invalid: 130
+tree-edge: 246
+git-status:
+  default: 246
+  unmodified: 246
+  ignored: 246
+  new-in-index: 59
+  new-in-workdir: 59
+  typechange: 59
+  deleted: 130
+  renamed: 59
+  modified: 130
+  conflicted: 130
