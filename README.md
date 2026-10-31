@@ -6,7 +6,8 @@
 
 Pop!_OS 24.04 on COSMIC in pearl, steel and charcoal: desktop, terminal,
 shell, Firefox, Brave, cursor, wallpapers. A light rice with no loud colour;
-terracotta is kept for what is wrong.
+terracotta is kept for what is wrong. The light half of a pair;
+the dark half is [cosmic-k3-theme](https://github.com/atraxsrc/cosmic-k3-theme).
 
 ![Pop!_OS](https://img.shields.io/badge/Pop!_OS-24.04_LTS-586065?style=for-the-badge&logo=popos&logoColor=white)
 ![COSMIC](https://img.shields.io/badge/COSMIC-1.0.0-5e5e5e?style=for-the-badge)
@@ -41,6 +42,14 @@ window background.
 | Muted | ![#616161](https://placehold.co/12x12/616161/616161.png) Secondary text | ![#616161](https://placehold.co/12x12/616161/616161.png) `#616161` |
 | Dim | ![#939494](https://placehold.co/12x12/939494/939494.png) Comments | ![#939494](https://placehold.co/12x12/939494/939494.png) `#939494` |
 | Lines | ![#aaabab](https://placehold.co/12x12/aaabab/aaabab.png) Box lines, inactive | ![#AAABAB](https://placehold.co/12x12/aaabab/aaabab.png) `#AAABAB` |
+
+| Role | K3 Day | K3 |
+|------|---|---|
+| Background | ![#E5E6E6](https://placehold.co/12x12/e5e6e6/e5e6e6.png) `#E5E6E6` | ![#101315](https://placehold.co/12x12/101315/101315.png) `#101315` |
+| Text | ![#1A1B1B](https://placehold.co/12x12/1a1b1b/1a1b1b.png) `#1A1B1B` | ![#CACCCC](https://placehold.co/12x12/cacccc/cacccc.png) `#CACCCC` |
+| Accent | ![#586065](https://placehold.co/12x12/586065/586065.png) `#586065` | ![#798186](https://placehold.co/12x12/798186/798186.png) `#798186` |
+| Success | ![#5E5E5E](https://placehold.co/12x12/5e5e5e/5e5e5e.png) `#5E5E5E` | ![#9FA5A9](https://placehold.co/12x12/9fa5a9/9fa5a9.png) `#9FA5A9` |
+| Error | ![#B03316](https://placehold.co/12x12/b03316/b03316.png) `#B03316` | ![#DE6145](https://placehold.co/12x12/de6145/de6145.png) `#DE6145` |
 
 The accent is steel, 5.1:1 on the background and 5.7:1 on a container,
 so it stays the same colour wherever it is text; buttons and selections
@@ -97,7 +106,7 @@ carry it with pearl text on top.
 │   ├── cosmic-k3day.tdesktop-theme # built theme, open this in Telegram
 │   └── build.sh                 # rebuilds it, optionally with a wallpaper
 ├── vscode
-│   ├── themes/                  # Cursor / VS Code colour theme, Cosmic K3 Day
+│   ├── themes/                  # Cursor / VS Code colour themes, K3 (dark) + K3 Day (light)
 │   ├── package.json             # extension manifest
 │   ├── install.sh               # packs a .vsix, installs it with cursor --install-extension
 │   └── README.md
@@ -137,6 +146,11 @@ applets and system UI (maximized apps stay solid), and corners are squared
 Appearance → Style → Frosted glass after import; those sliders survive a theme switch.
 
 Export from Appearance if you tweak backgrounds / tints so you do not lose them.
+
+Pairing tip: import `K3.ron` from
+[cosmic-k3-theme](https://github.com/atraxsrc/cosmic-k3-theme) into the
+Dark slot and COSMIC's Dark / Light toggle flips between the two. Wallpaper,
+Firefox and the shell layer do not follow the toggle; those are per-rice files.
 
 ### Baseline settings
 
@@ -229,9 +243,10 @@ packing a `.crx`: [`brave/README.md`](brave/README.md).
 ## Claude Desktop
 
 For the unofficial [claude-desktop-extra](https://github.com/patrickjaja/claude-desktop-extra)
-Linux build. `claude-desktop/cosmic-k3.jsonc` carries the K3 Day palette in
-both of the file's blocks, so Claude's own Settings → Appearance toggle makes
-no difference. Colours come from `cosmic/K3Day.ron`, contrast-checked (text and
+Linux build. `claude-desktop/cosmic-k3.jsonc` is one theme with both halves:
+K3 in dark mode and K3 Day in light mode, so Claude's own
+Settings → Appearance toggle switches between the two rices.
+Colours come from `cosmic/*.ron`, contrast-checked (text and
 button text 4.5:1, accents 3:1).
 
 ```bash
@@ -241,13 +256,18 @@ button text 4.5:1, accents 3:1).
 It copies the file into `~/.config/Claude/themes.d/`. Then press
 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> in Claude Desktop and pick **cosmic-k3**.
 
+The same file ships in [`cosmic-k3-theme`](https://github.com/atraxsrc/cosmic-k3-theme),
+so installing from either repo gives the same theme.
+
 ---
 
 ## Cursor editor
 
-`vscode/` is a colour theme extension for [Cursor](https://cursor.com):
-**Cosmic K3 Day**. It is a plain VS Code theme extension, so VS Code and VSCodium
-take it too. Code is coloured the way Neovim is in the rice; the workbench is
+`vscode/` is a colour theme extension for [Cursor](https://cursor.com) with
+both halves of the pair: **Cosmic K3** and **Cosmic K3 Day**. It is a
+plain VS Code theme extension, so VS Code and VSCodium take it too, and the
+same extension ships in cosmic-k3-theme. Code is coloured the way Neovim is
+in the rice; the workbench is
 pearl with frost menus, hovers and inputs, steel on the active tab, buttons
 and menu highlight, and the integrated terminal uses the COSMIC Terminal
 scheme. Cursor builds its Agent and chat panels from the same theme colours,
@@ -260,8 +280,9 @@ so they follow along.
 It packs `vscode/` into a `.vsix` and installs it with
 `cursor --install-extension`; run it again after editing the theme. Then press
 <kbd>Ctrl</kbd>+<kbd>K</kbd> <kbd>Ctrl</kbd>+<kbd>T</kbd> in Cursor and pick
-**Cosmic K3 Day**. The colours and the contrast notes are in
-[`vscode/README.md`](vscode/README.md).
+**Cosmic K3 Day**. Three lines in Cursor's `settings.json` make it follow
+COSMIC's Dark / Light toggle between K3 and K3 Day; they, the colours and
+the contrast notes are in [`vscode/README.md`](vscode/README.md).
 
 ---
 
@@ -289,6 +310,9 @@ background is plain pearl; to put a wallpaper behind the chat instead
 
 Built against Telegram Desktop 7.3.1. Calls, group calls, statistics charts and
 premium badges keep Telegram's own colours.
+
+Telegram has no dark / light pairing, so K3, the dark half, ships its
+own theme.
 
 ---
 
@@ -529,11 +553,16 @@ The GUI steps it cannot do are printed at the end:
 2. COSMIC Terminal → View → Color schemes → Light tab → Import `cosmic-term/K3Day-term.ron`
 3. Firefox: disable the old rice's add-on, enable this one, restart Firefox
 4. Settings → Wallpaper → a file from `backgrounds/`
-5. Claude Desktop: Ctrl+Shift+T → `cosmic-k3`
+5. Claude Desktop: Ctrl+Shift+T → `cosmic-k3`, Appearance → Light
 6. `exec zsh`, restart Neovim (`:Lazy clean` drops plugins only the old specs used)
 
 Skip 1 and 2 when that slot already holds K3 Day. The first time on this rice,
 run [Setup](#setup) once for the fonts, icons and cursor.
+
+**Within the pair** (K3 Day ↔ [K3](https://github.com/atraxsrc/cosmic-k3-theme)): the two halves
+sit side by side in COSMIC's Dark and Light slots and share one Claude Desktop
+theme, so after the first time only the Firefox add-on and the wallpaper are
+left by hand. Add `--keep-icons` to keep one icon colour across the pair.
 
 Leaving K3 Day is the next rice's `./scripts/switch.sh`. `./cursors/uninstall.sh`
 puts the Pop cursor back.
