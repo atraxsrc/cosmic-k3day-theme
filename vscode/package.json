@@ -1,0 +1,39 @@
+{
+  "name": "cosmic-k3day-theme",
+  "displayName": "Cosmic K3 Day",
+  "description": "Dark colour theme from the COSMIC K3 Day rice, syntax as in its Neovim scheme.",
+  "version": "1.0.0",
+  "publisher": "atraxsrc",
+  "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#E5E6E6",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atraxsrc/cosmic-k3day-theme"
+  },
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "cosmic",
+    "k3day",
+    "cursor"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Cosmic K3 Day",
+        "uiTheme": "vs",
+        "path": "./themes/cosmic-k3day-color-theme.json"
+      }
+    ]
+  }
+}
