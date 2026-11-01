@@ -1,0 +1,6 @@
+name = "K3 Day"
+mode = "light"
+theme = "K3Day.ron"
+pair = "k3"
+terminal = "K3Day-term.ron"
+btop = "K3Day"
