@@ -454,7 +454,7 @@ Restart open apps afterwards (Files caches icons per window).
 Add `--system` to install to `/usr/share/icons` instead, for every user and the
 login screen (asks for sudo); `--user` is the default.
 
-Wallpapers ship in [`backgrounds/`](backgrounds/), named `k3day-<subject>`, the same pictures as K3: seven
+Wallpapers ship in [`backgrounds/`](backgrounds/), named `k3day-<subject>`, the same pictures as K3 with the ink flipped onto paper: seven
 ink-wash illustrations in the palette's own two tones, a stargazer under a
 swirling sky, a figure crouched in rubble, a climber in a storm, a girl in
 stardust, a window onto a dark eye over the city, a rally car in a manga
