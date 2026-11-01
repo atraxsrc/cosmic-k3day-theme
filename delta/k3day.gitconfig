@@ -1,0 +1,56 @@
+# K3Day for delta (the git diff pager), part of cosmic-k3day-theme (MIT).
+# Removed lines in the error colour, added lines in the success colour, both
+# on the editor's container; changed words on a solid error / success block
+# with the editor background as text (the same as DiffAdd / DiffDelete /
+# DiffText in Neovim). Code inside the diff uses the bat K3Day theme, so run
+# ./bat/install.sh first.
+#
+# Install: ./delta/install.sh puts this in ~/.config/delta/, then add to
+# ~/.gitconfig (the installer prints this, it never edits ~/.gitconfig):
+#   [include]
+#       path = ~/.config/delta/k3day.gitconfig
+# and, if delta is not your pager yet:
+#   [core]
+#       pager = delta
+#   [interactive]
+#       diffFilter = delta --color-only
+
+[delta]
+    features = k3day
+
+[delta "k3day"]
+    light = true
+    syntax-theme = K3Day
+    navigate = true
+    line-numbers = true
+
+    file-style = bold "#586065"
+    file-decoration-style = "#CED0D0" ul
+    hunk-header-style = file line-number syntax
+    hunk-header-decoration-style = "#CED0D0" box
+    hunk-header-file-style = "#5B5D5D"
+    hunk-header-line-number-style = "#666052"
+
+    minus-style = "#B03316" "#F0F2F2"
+    minus-emph-style = bold "#E5E6E6" "#B03316"
+    minus-non-emph-style = "#B03316" "#F0F2F2"
+    plus-style = "#5E5E5E" "#F0F2F2"
+    plus-emph-style = bold "#E5E6E6" "#5E5E5E"
+    plus-non-emph-style = "#5E5E5E" "#F0F2F2"
+    zero-style = syntax
+    whitespace-error-style = "#E5E6E6" "#A04412"
+
+    line-numbers-left-style = "#CED0D0"
+    line-numbers-right-style = "#CED0D0"
+    line-numbers-minus-style = "#B03316"
+    line-numbers-plus-style = "#5E5E5E"
+    line-numbers-zero-style = "#939494"
+
+    commit-style = bold "#666052"
+    commit-decoration-style = "#CED0D0" box
+    blame-palette = "#E5E6E6 #F0F2F2 #DADCDC"
+    blame-code-style = syntax
+    merge-conflict-begin-symbol = ▼
+    merge-conflict-end-symbol = ▲
+    merge-conflict-ours-diff-header-style = bold "#5E5E5E"
+    merge-conflict-theirs-diff-header-style = bold "#A04412"

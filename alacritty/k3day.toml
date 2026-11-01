@@ -1,0 +1,80 @@
+# K3Day for Alacritty, part of cosmic-k3day-theme (MIT).
+# Colours follow the COSMIC Terminal scheme (cosmic-term/).
+#
+# Install: ./alacritty/install.sh puts this in ~/.config/alacritty/themes/,
+# then in ~/.config/alacritty/alacritty.toml:
+#   [general]
+#   import = ["~/.config/alacritty/themes/k3day.toml"]
+# (Alacritty 0.13: a top-level `import = [...]` line instead.)
+
+[colors.primary]
+background = "#E5E6E6"
+foreground = "#1A1B1B"
+bright_foreground = "#0D0E0E"
+dim_foreground = "#616161"
+
+[colors.cursor]
+text = "#E5E6E6"
+cursor = "#586065"
+
+[colors.vi_mode_cursor]
+text = "#E5E6E6"
+cursor = "#A04412"
+
+[colors.selection]
+text = "CellForeground"
+background = "#CED0D0"
+
+[colors.search.matches]
+foreground = "#E5E6E6"
+background = "#666052"
+
+[colors.search.focused_match]
+foreground = "#E5E6E6"
+background = "#586065"
+
+[colors.hints.start]
+foreground = "#E5E6E6"
+background = "#A04412"
+
+[colors.hints.end]
+foreground = "#E5E6E6"
+background = "#666052"
+
+[colors.footer_bar]
+foreground = "#1A1B1B"
+background = "#F0F2F2"
+
+[colors.line_indicator]
+foreground = "None"
+background = "None"
+
+[colors.normal]
+black   = "#EAEAEA"
+red     = "#B03316"
+green   = "#5E5E5E"
+yellow  = "#666052"
+blue    = "#586065"
+magenta = "#A04412"
+cyan    = "#767676"
+white   = "#362D29"
+
+[colors.bright]
+black   = "#AAABAB"
+red     = "#8D2811"
+green   = "#484848"
+yellow  = "#111313"
+blue    = "#586065"
+magenta = "#7D340C"
+cyan    = "#5B5D5D"
+white   = "#0D0E0E"
+
+[colors.dim]
+black   = "#E5E6E6"
+red     = "#B95C47"
+green   = "#686868"
+yellow  = "#645D53"
+blue    = "#5F5F5F"
+magenta = "#AA6540"
+cyan    = "#A2A3A3"
+white   = "#5B5D5D"

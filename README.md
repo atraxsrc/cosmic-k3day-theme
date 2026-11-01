@@ -61,6 +61,13 @@ carry it with pearl text on top.
 
 ```
 .
+├── alacritty
+│   ├── k3day.toml               # Alacritty colour scheme
+│   └── install.sh
+├── bat
+│   ├── K3Day.tmTheme            # bat syntax theme (delta uses it too)
+│   ├── config                   # --theme="K3Day"
+│   └── install.sh
 ├── brave
 │   ├── theme                    # Chromium theme (manifest + icons), Load unpacked
 │   └── README.md
@@ -83,6 +90,21 @@ carry it with pearl text on top.
 │   ├── install.sh
 │   ├── uninstall.sh
 │   └── README.md
+├── delta
+│   ├── k3day.gitconfig          # delta (git pager) colours, [include] it from ~/.gitconfig
+│   └── install.sh
+├── discord
+│   ├── cosmic-k3.theme.css      # Vencord / Vesktop theme, K3 (dark) + K3 Day (light)
+│   └── install.sh
+├── ghostty
+│   ├── K3Day                    # Ghostty theme
+│   └── install.sh
+├── gtk
+│   ├── k3day.css                # GTK 3 / 4 named colours for non-COSMIC apps
+│   └── install.sh
+├── helix
+│   ├── k3day.toml               # Helix theme
+│   └── install.sh
 ├── icons
 │   └── install.sh               # Cosmic-K3Day icon pack from cosmic-icon-themes
 ├── fastfetch
@@ -96,11 +118,26 @@ carry it with pearl text on top.
 │   │   └── userContent.css      # new tab accent
 │   ├── install.sh
 │   └── README.md
+├── kitty
+│   ├── K3Day.conf               # kitty colour scheme
+│   └── install.sh
+├── lazygit
+│   ├── k3day.yml                # lazygit colours only, stacked on your config.yml
+│   └── install.sh
 ├── lsd
 │   ├── config.yaml              # theme: custom
 │   ├── colors.yaml              # permission / size / date / git columns
 │   └── install.sh
 ├── nvim                         # Neovim colorscheme, LazyVim spec, RON syntax, install.sh
+├── obsidian
+│   ├── cosmic-k3.css            # CSS snippet, K3 (dark) + K3 Day (light)
+│   └── install.sh
+├── qt
+│   ├── K3Day.conf               # qt5ct / qt6ct colour scheme
+│   └── install.sh
+├── starship
+│   ├── starship.toml            # prompt, palette colours, clock on the right
+│   └── install.sh
 ├── telegram
 │   ├── colors.tdesktop-theme    # Telegram Desktop colour scheme (source)
 │   ├── cosmic-k3day.tdesktop-theme # built theme, open this in Telegram
@@ -113,8 +150,11 @@ carry it with pearl text on top.
 ├── scripts
 │   ├── update_system.sh         # nala + flatpak, steel / mist ANSI
 │   └── switch.sh                # make this the active rice (see Switching rice)
+├── wezterm
+│   ├── k3day.lua                # WezTerm colours, config.colors = require("k3day")
+│   └── install.sh
 ├── zsh
-│   ├── k3day.zsh                   # LS_COLORS, highlighting colours, aliases, starship
+│   ├── k3day.zsh                   # LS_COLORS, highlighting colours, aliases, starship, lazygit
 │   └── install.sh
 ├── assets
 │   ├── cursors/                 # cursor preview
@@ -316,6 +356,90 @@ own theme.
 
 ---
 
+## GTK and Qt apps
+
+COSMIC colours GTK apps itself when Appearance → **Apply theme to GNOME apps**
+is on (the baseline config turns it on). `gtk/k3day.css` is the same palette
+pinned by hand for GTK 3 and GTK 4 / libadwaita apps: windows and lists on
+![#E5E6E6](https://placehold.co/12x12/e5e6e6/e5e6e6.png) `#E5E6E6`, cards, popovers and dialogs on ![#F0F2F2](https://placehold.co/12x12/f0f2f2/f0f2f2.png) `#F0F2F2`, text in ![#1A1B1B](https://placehold.co/12x12/1a1b1b/1a1b1b.png) `#1A1B1B`, selection
+and accent in ![#586065](https://placehold.co/12x12/586065/586065.png) `#586065` with ![#E5E6E6](https://placehold.co/12x12/e5e6e6/e5e6e6.png) `#E5E6E6` text on it, ![#5E5E5E](https://placehold.co/12x12/5e5e5e/5e5e5e.png) `#5E5E5E` for
+success and ![#A04412](https://placehold.co/12x12/a04412/a04412.png) `#A04412` for warnings. It only sets the named colours, so
+widgets keep their stock shapes, and it also works where COSMIC's toggle does
+not reach (another desktop, Flatpak apps given access to `~/.config/gtk-4.0`).
+
+```bash
+./gtk/install.sh
+```
+
+It copies the file to `~/.config/gtk-3.0/` and `~/.config/gtk-4.0/` and adds
+`@import url("k3day.css");` to `gtk.css` there, after COSMIC's own import so
+these colours win (backup in `gtk.css.bak`); another rice's import is
+commented out. Restart GTK apps.
+
+`qt/K3Day.conf` is a colour scheme for [qt5ct](https://github.com/desktop-app/qt5ct)
+/ [qt6ct](https://github.com/trialuser02/qt6ct): windows on ![#E5E6E6](https://placehold.co/12x12/e5e6e6/e5e6e6.png) `#E5E6E6`, text
+fields and lists on ![#F0F2F2](https://placehold.co/12x12/f0f2f2/f0f2f2.png) `#F0F2F2`, buttons and tooltips on ![#F0F2F2](https://placehold.co/12x12/f0f2f2/f0f2f2.png) `#F0F2F2`, text in
+![#1A1B1B](https://placehold.co/12x12/1a1b1b/1a1b1b.png) `#1A1B1B`, ![#586065](https://placehold.co/12x12/586065/586065.png) `#586065` for the highlight and links, placeholders in ![#616161](https://placehold.co/12x12/616161/616161.png) `#616161`,
+disabled text in ![#939494](https://placehold.co/12x12/939494/939494.png) `#939494`.
+
+```bash
+./qt/install.sh
+# qt6ct → Appearance → Color scheme → K3Day, Palette: Custom → Apply
+```
+
+Qt apps read it with `QT_QPA_PLATFORMTHEME=qt6ct` (or `qt5ct`) in the
+environment; `~/.config/environment.d/` or your `~/.zshrc` is the place.
+
+Text and secondary text read at 4.8:1 or better on the window, container and
+field colours; disabled, placeholder and dim text, like comments elsewhere in
+the rice, at 2.4:1.
+
+---
+
+## Obsidian
+
+`obsidian/cosmic-k3.css` is a CSS snippet with both halves of the pair:
+K3 in dark mode, K3 Day in light mode, so with Settings →
+Appearance → Base color scheme → **Adapt to system** Obsidian follows COSMIC's
+Dark / Light toggle. Editor on ![#E5E6E6](https://placehold.co/12x12/e5e6e6/e5e6e6.png) `#E5E6E6`, sidebars on ![#F0F2F2](https://placehold.co/12x12/f0f2f2/f0f2f2.png) `#F0F2F2`, text in ![#1A1B1B](https://placehold.co/12x12/1a1b1b/1a1b1b.png) `#1A1B1B`,
+links and accent in ![#586065](https://placehold.co/12x12/586065/586065.png) `#586065`, headings coloured like Neovim's
+(![#586065](https://placehold.co/12x12/586065/586065.png) `#586065` / ![#666052](https://placehold.co/12x12/666052/666052.png) `#666052` / ![#5B5D5D](https://placehold.co/12x12/5b5d5d/5b5d5d.png) `#5B5D5D`), code and checkboxes in ![#5E5E5E](https://placehold.co/12x12/5e5e5e/5e5e5e.png) `#5E5E5E`, tags
+in ![#666052](https://placehold.co/12x12/666052/666052.png) `#666052`. The same file ships in cosmic-k3-theme.
+
+```bash
+./obsidian/install.sh ~/path/to/vault
+# Settings → Appearance → CSS snippets → cosmic-k3
+```
+
+It copies the file into the vault's `.obsidian/snippets/`. Snippets are per
+vault, so run it once per vault.
+
+---
+
+## Discord
+
+`discord/cosmic-k3.theme.css` is a theme for [Vencord](https://vencord.dev/)
+and [Vesktop](https://github.com/Vencord/Vesktop), colours only: chat on
+![#E5E6E6](https://placehold.co/12x12/e5e6e6/e5e6e6.png) `#E5E6E6`, sidebars and inputs on ![#F0F2F2](https://placehold.co/12x12/f0f2f2/f0f2f2.png) `#F0F2F2`, server list on ![#DADCDC](https://placehold.co/12x12/dadcdc/dadcdc.png) `#DADCDC`, text in
+![#1A1B1B](https://placehold.co/12x12/1a1b1b/1a1b1b.png) `#1A1B1B`, channel names in ![#5B5D5D](https://placehold.co/12x12/5b5d5d/5b5d5d.png) `#5B5D5D`, accent, mentions and links in
+![#586065](https://placehold.co/12x12/586065/586065.png) `#586065`, ![#5E5E5E](https://placehold.co/12x12/5e5e5e/5e5e5e.png) `#5E5E5E` for online and positive, ![#A04412](https://placehold.co/12x12/a04412/a04412.png) `#A04412` for
+warnings. The light half is K3 Day and the dark half K3, so
+with Appearance → Theme → **Sync with computer** it follows COSMIC's toggle.
+The same file ships in cosmic-k3-theme.
+
+```bash
+./discord/install.sh
+# Settings → Vencord → Themes → Cosmic K3
+```
+
+It copies the file into `~/.config/Vencord/themes/` and
+`~/.config/vesktop/themes/`, whichever exist. Discord renames its CSS
+variables now and then; the file sets both the long-standing names and the
+2025 `--bg-*` set. Text on the surfaces is 4.8:1 or better; the text on
+Discord's own accent-coloured buttons stays its white, at 6.4:1.
+
+---
+
 ## Cursor
 
 **Oxygen** cursors recoloured to the icon colours, one per folder colour of the
@@ -362,12 +486,125 @@ Makes this the active rice, coming from any other `cosmic-*-theme` rice. See
 Need a [Nerd Font](https://www.nerdfonts.com/) in the terminal for the icons
 (Maple Mono NFM in the baseline above).
 
+### kitty, Alacritty, WezTerm, Ghostty
+
+The COSMIC Terminal scheme for other terminals, one file each with the same
+sixteen ANSI colours, text in ![#1A1B1B](https://placehold.co/12x12/1a1b1b/1a1b1b.png) `#1A1B1B`, the cursor in ![#586065](https://placehold.co/12x12/586065/586065.png) `#586065` and the
+selection on ![#CED0D0](https://placehold.co/12x12/ced0d0/ced0d0.png) `#CED0D0`. Each installer copies the file next to that terminal's
+config and backs up what it replaces; the one include line you add is
+printed, and is in the comment at the top of each file:
+
+```bash
+./kitty/install.sh        # ~/.config/kitty/themes/K3Day.conf       kitty.conf:     include themes/K3Day.conf
+./alacritty/install.sh    # ~/.config/alacritty/themes/k3day.toml   alacritty.toml: [general] import = ["~/.config/alacritty/themes/k3day.toml"]
+./wezterm/install.sh      # ~/.config/wezterm/k3day.lua             wezterm.lua:    config.colors = require("k3day")
+./ghostty/install.sh      # ~/.config/ghostty/themes/K3Day          config:         theme = K3Day
+```
+
+Ghostty and WezTerm can follow COSMIC's Dark / Light toggle once the K3
+half is installed from its repo as well: `theme = dark:K3,light:K3Day` in
+Ghostty, and in WezTerm
+
+```lua
+local dark = (wezterm.gui and wezterm.gui.get_appearance() or "Dark"):find("Dark")
+config.colors = require(dark and "k3" or "k3day")
+```
+
+kitty and Alacritty have no such switch; include the other file instead.
+
+### starship
+
+`starship/starship.toml` is close to the defaults with the palette declared
+once as `[palettes.k3day]` and used by name: the directory in ![#5B5D5D](https://placehold.co/12x12/5b5d5d/5b5d5d.png) `#5B5D5D`,
+the branch in ![#666052](https://placehold.co/12x12/666052/666052.png) `#666052`, ![#A04412](https://placehold.co/12x12/a04412/a04412.png) `#A04412` for a dirty tree, a ![#5E5E5E](https://placehold.co/12x12/5e5e5e/5e5e5e.png) `#5E5E5E` prompt
+character that turns ![#B03316](https://placehold.co/12x12/b03316/b03316.png) `#B03316` after a failed command, a dim `HH:MM` clock on
+the right. Modules it does not style keep their defaults, which use the ANSI
+slots the COSMIC Terminal scheme colours. `zsh/k3day.zsh` already runs
+`starship init`. `install.sh` backs up any existing `~/.config/starship.toml`
+to `starship.toml.bak`.
+
+```bash
+./starship/install.sh
+```
+
+### bat
+
+`bat/K3Day.tmTheme` is a syntax theme coloured the way Neovim is in this
+rice: keywords in ![#586065](https://placehold.co/12x12/586065/586065.png) `#586065`, strings in ![#5E5E5E](https://placehold.co/12x12/5e5e5e/5e5e5e.png) `#5E5E5E`, functions in ![#666052](https://placehold.co/12x12/666052/666052.png) `#666052`, numbers
+in ![#A04412](https://placehold.co/12x12/a04412/a04412.png) `#A04412`, types in ![#5B5D5D](https://placehold.co/12x12/5b5d5d/5b5d5d.png) `#5B5D5D`, imports and escapes in ![#78594A](https://placehold.co/12x12/78594a/78594a.png) `#78594A`, italic
+comments in ![#939494](https://placehold.co/12x12/939494/939494.png) `#939494`, on the editor background ![#E5E6E6](https://placehold.co/12x12/e5e6e6/e5e6e6.png) `#E5E6E6`. `zsh/k3day.zsh`
+aliases `cat` to bat. `install.sh` copies the theme to `~/.config/bat/themes/`,
+rebuilds bat's cache so bat and delta can find it, and sets `--theme="K3Day"`
+in `~/.config/bat/config` (backup in `config.bak`).
+
+```bash
+./bat/install.sh
+batcat README.md
+```
+
+### delta
+
+`delta/k3day.gitconfig` colours [delta](https://github.com/dandavison/delta),
+the git diff pager: removed lines in ![#B03316](https://placehold.co/12x12/b03316/b03316.png) `#B03316` and added lines in
+![#5E5E5E](https://placehold.co/12x12/5e5e5e/5e5e5e.png) `#5E5E5E` on the container ![#F0F2F2](https://placehold.co/12x12/f0f2f2/f0f2f2.png) `#F0F2F2`, changed words on a solid block of
+those two colours with ![#E5E6E6](https://placehold.co/12x12/e5e6e6/e5e6e6.png) `#E5E6E6` text, the same as Neovim's diff highlights;
+file names in ![#586065](https://placehold.co/12x12/586065/586065.png) `#586065`, commit hashes in ![#666052](https://placehold.co/12x12/666052/666052.png) `#666052`, hunk headers in
+![#5B5D5D](https://placehold.co/12x12/5b5d5d/5b5d5d.png) `#5B5D5D` inside ![#CED0D0](https://placehold.co/12x12/ced0d0/ced0d0.png) `#CED0D0` boxes, line numbers. Code inside the diff
+uses the bat theme above, so install that first. `install.sh` copies the file
+to `~/.config/delta/` and prints the `[include]` to add to `~/.gitconfig`; it
+never edits that file.
+
+```bash
+./delta/install.sh
+```
+
+```ini
+# ~/.gitconfig
+[include]
+    path = ~/.config/delta/k3day.gitconfig
+[core]
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+```
+
+### lazygit
+
+`lazygit/k3day.yml` holds only the `gui.theme` block: active border in
+![#586065](https://placehold.co/12x12/586065/586065.png) `#586065`, inactive borders in ![#CED0D0](https://placehold.co/12x12/ced0d0/ced0d0.png) `#CED0D0`, the selected line on ![#DADCDC](https://placehold.co/12x12/dadcdc/dadcdc.png) `#DADCDC`,
+![#666052](https://placehold.co/12x12/666052/666052.png) `#666052` and ![#5E5E5E](https://placehold.co/12x12/5e5e5e/5e5e5e.png) `#5E5E5E` marks for cherry-picked and base commits,
+unstaged changes in ![#B03316](https://placehold.co/12x12/b03316/b03316.png) `#B03316`, author names in ![#666052](https://placehold.co/12x12/666052/666052.png) `#666052`. lazygit reads one
+config file, so instead of replacing your `~/.config/lazygit/config.yml` the
+installer drops the theme beside it and `zsh/k3day.zsh` sets `LG_CONFIG_FILE`
+to both, your file first, so the colours win and your keybindings stay.
+
+```bash
+./lazygit/install.sh
+exec zsh
+```
+
+Without the zsh layer, export it yourself:
+`LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/k3day.yml"`.
+
+### Helix
+
+`helix/k3day.toml` is the Neovim colorscheme for [Helix](https://helix-editor.com/):
+same syntax roles, editor on ![#E5E6E6](https://placehold.co/12x12/e5e6e6/e5e6e6.png) `#E5E6E6`, status line and popups on ![#F0F2F2](https://placehold.co/12x12/f0f2f2/f0f2f2.png) `#F0F2F2`,
+cursor and current line number in ![#586065](https://placehold.co/12x12/586065/586065.png) `#586065`, the mode shown as a solid
+![#586065](https://placehold.co/12x12/586065/586065.png) `#586065` / ![#5E5E5E](https://placehold.co/12x12/5e5e5e/5e5e5e.png) `#5E5E5E` / ![#666052](https://placehold.co/12x12/666052/666052.png) `#666052` block. `install.sh` copies it to
+`~/.config/helix/themes/`.
+
+```bash
+./helix/install.sh
+# ~/.config/helix/config.toml:  theme = "k3day"
+```
+
 ### zsh
 
 `zsh/k3day.zsh` is the rice part of the shell only: `LS_COLORS` (also used by
 lsd for file names and by the completion menu), steel / mist / khaki colours
-for zsh-autosuggestions and zsh-syntax-highlighting, lsd / bat / nvim aliases
-and the starship prompt. Your own `~/.zshrc` stays private and sources it.
+for zsh-autosuggestions and zsh-syntax-highlighting, lsd / bat / nvim aliases,
+the lazygit theme file and the starship prompt. Your own `~/.zshrc` stays private and sources it.
 
 Needs zsh + [oh-my-zsh](https://ohmyz.sh/). `install.sh` clones the two
 plugins if missing and appends one `source` line to `~/.zshrc` (backup in
@@ -507,6 +744,26 @@ reboot
 ./nvim/install.sh
 mkdir -p ~/.config/btop/themes && cp btop/K3Day.theme ~/.config/btop/themes/
 
+./starship/install.sh
+./bat/install.sh
+./delta/install.sh          # then the [include] it prints, in ~/.gitconfig
+./lazygit/install.sh
+./helix/install.sh          # then theme = "k3day" in helix/config.toml
+
+# other terminals, one include line each (see Terminal extras above)
+./kitty/install.sh
+./alacritty/install.sh
+./wezterm/install.sh
+./ghostty/install.sh
+
+# gtk + qt apps (see GTK and Qt apps above)
+./gtk/install.sh
+./qt/install.sh             # then qt6ct → Color scheme → K3Day
+
+# obsidian + discord, both halves in one file (see above)
+./obsidian/install.sh ~/path/to/vault
+./discord/install.sh
+
 # wallpaper
 # Settings → Wallpaper → Add image → a file from backgrounds/ (see Icons and wallpaper above)
 
@@ -537,8 +794,11 @@ It backs up every file it replaces, then:
   The terminal scheme and icon theme are only replaced when the current one is
   not already a K3 Day variant, so a dimmer text variant or another icon colour
   survives. Icons stay as they are until `./icons/install.sh` has run.
-- runs the fastfetch, lsd, Neovim and Claude Desktop installers and sets
-  btop's `color_theme`
+- runs the fastfetch, lsd, bat, starship, delta, lazygit, kitty, Alacritty,
+  WezTerm, Ghostty, Helix, GTK, Qt, Discord, Neovim and Claude Desktop
+  installers and sets btop's `color_theme`. The terminal, editor and Qt
+  installers only copy theme files; the include line you added once stays,
+  switch it by hand when the file name differs between rices
 - moves every other rice's LazyVim spec from `~/.config/nvim/lua/plugins/` to
   `~/.config/nvim/rice-off/` (LazyVim loads every spec there and the last
   colorscheme wins); your own specs stay
@@ -555,6 +815,7 @@ The GUI steps it cannot do are printed at the end:
 4. Settings → Wallpaper → a file from `backgrounds/`
 5. Claude Desktop: Ctrl+Shift+T → `cosmic-k3`, Appearance → Light
 6. `exec zsh`, restart Neovim (`:Lazy clean` drops plugins only the old specs used)
+7. Obsidian: `./obsidian/install.sh <vault>`; delta: the `[include]` path in `~/.gitconfig`
 
 Skip 1 and 2 when that slot already holds K3 Day. The first time on this rice,
 run [Setup](#setup) once for the fonts, icons and cursor.
@@ -579,6 +840,14 @@ puts the Pop cursor back.
 | [lsd](https://github.com/lsd-rs/lsd) | `ls` with icons and colours |
 | [fastfetch](https://github.com/fastfetch-cli/fastfetch) | System info |
 | [btop](https://github.com/aristocratos/btop) | Resource monitor |
+| [starship](https://starship.rs/) | Prompt |
+| [bat](https://github.com/sharkdp/bat) | `cat` with syntax highlighting |
+| [delta](https://github.com/dandavison/delta) | git diff pager |
+| [lazygit](https://github.com/jesseduffield/lazygit) | git TUI |
+| [Helix](https://helix-editor.com/) | Editor |
+| [kitty](https://sw.kovidgoyal.net/kitty/), [Alacritty](https://alacritty.org/), [WezTerm](https://wezterm.org/), [Ghostty](https://ghostty.org/) | Other terminals |
+| [qt6ct](https://github.com/trialuser02/qt6ct) | Qt colour scheme |
+| [Vencord](https://vencord.dev/) / [Vesktop](https://github.com/Vencord/Vesktop) | Discord theme host |
 | [cosmic-icon-themes](https://github.com/atraxsrc/cosmic-icon-themes) | Icon pack (Cosmic-K3Day), recolored from [Kanagawa icons](https://github.com/Fausto-Korpsvart/Kanagawa-GKT-Theme/tree/main/icons/Kanagawa) |
 | [Oxygen-Cursors](https://github.com/wo2ni/Oxygen-Cursors) | Cursor, recoloured to the icon colours |
 

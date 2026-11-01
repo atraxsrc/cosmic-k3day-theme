@@ -1,0 +1,209 @@
+/* cosmic-k3 - Obsidian CSS snippet for the COSMIC rice pair (MIT).
+ * K3 in dark mode, K3 Day in light mode: with Settings -> Appearance ->
+ * Base color scheme set to "Adapt to system", Obsidian follows COSMIC's
+ * Dark / Light toggle between the two. The same file ships in both repos.
+ *
+ * Install: ./obsidian/install.sh <vault> copies it to
+ * <vault>/.obsidian/snippets/, then Settings -> Appearance -> CSS snippets
+ * -> cosmic-k3. Colours come from the rices' cosmic/*.ron palettes and
+ * nvim colorschemes; edit the palette, not this file. */
+
+.theme-dark {
+  /* K3 */
+  --background-primary: #101315;
+  --background-primary-alt: #212121;
+  --background-secondary: #212121;
+  --background-secondary-alt: #2C2C2D;
+  --background-modifier-border: #343D41;
+  --background-modifier-border-hover: #4B4E55;
+  --background-modifier-border-focus: #798186;
+  --background-modifier-hover: #2C2C2D;
+  --background-modifier-active-hover: #343D41;
+  --background-modifier-form-field: #212121;
+  --background-modifier-error: #DE6145;
+  --background-modifier-error-hover: #DE6145;
+  --background-modifier-success: #9FA5A9;
+  --background-modifier-message: #212121;
+  --titlebar-background: #101315;
+  --titlebar-background-focused: #101315;
+  --divider-color: #343D41;
+  --divider-color-hover: #4B4E55;
+
+  --text-normal: #CACCCC;
+  --text-muted: #949494;
+  --text-faint: #7F7F7F;
+  --text-accent: #798186;
+  --text-accent-hover: #798186;
+  --text-on-accent: #101315;
+  --text-on-accent-inverted: #CACCCC;
+  --text-selection: #343D41;
+  --text-highlight-bg: #C9C2B450;
+  --text-error: #DE6145;
+  --text-warning: #D87C4A;
+  --text-success: #9FA5A9;
+
+  --interactive-normal: #212121;
+  --interactive-hover: #2C2C2D;
+  --interactive-accent: #798186;
+  --interactive-accent-hover: #798186;
+  --interactive-success: #9FA5A9;
+
+  --h1-color: #798186;
+  --h2-color: #C9C2B4;
+  --h3-color: #949494;
+  --h4-color: #CACCCC;
+  --h5-color: #CACCCC;
+  --h6-color: #A5AEB4;
+  --link-color: #798186;
+  --link-color-hover: #798186;
+  --link-external-color: #798186;
+  --link-external-color-hover: #798186;
+  --link-unresolved-color: #7F7F7F;
+  --code-normal: #9FA5A9;
+  --code-background: #212121;
+  --code-comment: #565D60;
+  --code-function: #C9C2B4;
+  --code-important: #9D7E6F;
+  --code-keyword: #798186;
+  --code-operator: #7F7F7F;
+  --code-property: #CACCCC;
+  --code-punctuation: #7F7F7F;
+  --code-string: #9FA5A9;
+  --code-tag: #798186;
+  --code-value: #D87C4A;
+  --blockquote-color: #A5AEB4;
+  --blockquote-border-color: #4B4E55;
+  --hr-color: #4B4E55;
+  --tag-color: #C9C2B4;
+  --tag-color-hover: #D9DBDC;
+  --tag-background: #212121;
+  --tag-background-hover: #2C2C2D;
+  --checkbox-color: #9FA5A9;
+  --checkbox-color-hover: #B5BABD;
+  --checkbox-marker-color: #101315;
+  --list-marker-color: #7F7F7F;
+  --bold-color: #CACCCC;
+  --italic-color: #CACCCC;
+  --table-header-background: #212121;
+  --table-row-alt-background: #212121;
+  --table-border-color: #343D41;
+  --scrollbar-bg: #101315;
+  --scrollbar-thumb-bg: #4B4E55;
+  --scrollbar-active-thumb-bg: #7F7F7F;
+  --graph-node: #CACCCC;
+  --graph-node-focused: #798186;
+  --graph-node-tag: #C9C2B4;
+  --graph-node-attachment: #9FA5A9;
+  --graph-node-unresolved: #565D60;
+  --graph-line: #4B4E55;
+
+  /* accent swatches: the terminal's slots */
+  --color-red: #DE6145;
+  --color-orange: #D87C4A;
+  --color-yellow: #C9C2B4;
+  --color-green: #9FA5A9;
+  --color-cyan: #707070;
+  --color-blue: #798186;
+  --color-purple: #D87C4A;
+  --color-pink: #E39A72;
+}
+
+.theme-light {
+  /* K3 Day */
+  --background-primary: #E5E6E6;
+  --background-primary-alt: #F0F2F2;
+  --background-secondary: #F0F2F2;
+  --background-secondary-alt: #DADCDC;
+  --background-modifier-border: #CED0D0;
+  --background-modifier-border-hover: #CED0D0;
+  --background-modifier-border-focus: #586065;
+  --background-modifier-hover: #DADCDC;
+  --background-modifier-active-hover: #CED0D0;
+  --background-modifier-form-field: #F0F2F2;
+  --background-modifier-error: #B03316;
+  --background-modifier-error-hover: #B03316;
+  --background-modifier-success: #5E5E5E;
+  --background-modifier-message: #F0F2F2;
+  --titlebar-background: #E5E6E6;
+  --titlebar-background-focused: #E5E6E6;
+  --divider-color: #CED0D0;
+  --divider-color-hover: #CED0D0;
+
+  --text-normal: #1A1B1B;
+  --text-muted: #5B5D5D;
+  --text-faint: #616161;
+  --text-accent: #586065;
+  --text-accent-hover: #586065;
+  --text-on-accent: #E5E6E6;
+  --text-on-accent-inverted: #1A1B1B;
+  --text-selection: #CED0D0;
+  --text-highlight-bg: #66605250;
+  --text-error: #B03316;
+  --text-warning: #A04412;
+  --text-success: #5E5E5E;
+
+  --interactive-normal: #F0F2F2;
+  --interactive-hover: #DADCDC;
+  --interactive-accent: #586065;
+  --interactive-accent-hover: #586065;
+  --interactive-success: #5E5E5E;
+
+  --h1-color: #586065;
+  --h2-color: #666052;
+  --h3-color: #5B5D5D;
+  --h4-color: #1A1B1B;
+  --h5-color: #1A1B1B;
+  --h6-color: #5E5F5F;
+  --link-color: #586065;
+  --link-color-hover: #586065;
+  --link-external-color: #586065;
+  --link-external-color-hover: #586065;
+  --link-unresolved-color: #616161;
+  --code-normal: #5E5E5E;
+  --code-background: #F0F2F2;
+  --code-comment: #939494;
+  --code-function: #666052;
+  --code-important: #78594A;
+  --code-keyword: #586065;
+  --code-operator: #616161;
+  --code-property: #1A1B1B;
+  --code-punctuation: #616161;
+  --code-string: #5E5E5E;
+  --code-tag: #586065;
+  --code-value: #A04412;
+  --blockquote-color: #5E5F5F;
+  --blockquote-border-color: #CED0D0;
+  --hr-color: #CED0D0;
+  --tag-color: #666052;
+  --tag-color-hover: #666052;
+  --tag-background: #F0F2F2;
+  --tag-background-hover: #DADCDC;
+  --checkbox-color: #5E5E5E;
+  --checkbox-color-hover: #5E5E5E;
+  --checkbox-marker-color: #E5E6E6;
+  --list-marker-color: #616161;
+  --bold-color: #1A1B1B;
+  --italic-color: #1A1B1B;
+  --table-header-background: #F0F2F2;
+  --table-row-alt-background: #F0F2F2;
+  --table-border-color: #CED0D0;
+  --scrollbar-bg: #E5E6E6;
+  --scrollbar-thumb-bg: #CED0D0;
+  --scrollbar-active-thumb-bg: #616161;
+  --graph-node: #1A1B1B;
+  --graph-node-focused: #586065;
+  --graph-node-tag: #666052;
+  --graph-node-attachment: #5E5E5E;
+  --graph-node-unresolved: #939494;
+  --graph-line: #CED0D0;
+
+  /* accent swatches: the terminal's slots */
+  --color-red: #B03316;
+  --color-orange: #A04412;
+  --color-yellow: #666052;
+  --color-green: #5E5E5E;
+  --color-cyan: #767676;
+  --color-blue: #586065;
+  --color-purple: #A04412;
+  --color-pink: #7D340C;
+}

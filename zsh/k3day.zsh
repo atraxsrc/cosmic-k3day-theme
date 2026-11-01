@@ -66,6 +66,17 @@ fi
 
 (( $+commands[cosmic-edit] )) && alias edit='cosmic-edit'
 
+# lazygit reads one config file; stack the rice colours (lazygit/k3day.yml,
+# installed by ./lazygit/install.sh) on top of your own config.yml
+if (( $+commands[lazygit] )); then
+    _k3day_lg="${XDG_CONFIG_HOME:-$HOME/.config}/lazygit"
+    if [[ -f $_k3day_lg/k3day.yml ]]; then
+        export LG_CONFIG_FILE="$_k3day_lg/k3day.yml"
+        [[ -f $_k3day_lg/config.yml ]] && LG_CONFIG_FILE="$_k3day_lg/config.yml,$LG_CONFIG_FILE"
+    fi
+    unset _k3day_lg
+fi
+
 if (( $+commands[nvim] )); then
     alias vi='nvim'
     alias vim='nvim'

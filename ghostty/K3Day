@@ -1,0 +1,45 @@
+# K3Day for Ghostty, part of cosmic-k3day-theme (MIT).
+# Colours follow the COSMIC Terminal scheme (cosmic-term/).
+#
+# Install: ./ghostty/install.sh puts this in ~/.config/ghostty/themes/, then in
+# ~/.config/ghostty/config:
+#   theme = K3Day
+# or, with the K3 half installed too, following COSMIC's Dark / Light toggle:
+#   theme = dark:K3,light:K3Day
+
+background = #E5E6E6
+foreground = #1A1B1B
+
+cursor-color = #586065
+cursor-text = #E5E6E6
+
+selection-background = #CED0D0
+selection-foreground = #1A1B1B
+
+split-divider-color = #CED0D0
+unfocused-split-fill = #E5E6E6
+
+# black
+palette = 0=#EAEAEA
+palette = 8=#AAABAB
+# red
+palette = 1=#B03316
+palette = 9=#8D2811
+# green
+palette = 2=#5E5E5E
+palette = 10=#484848
+# yellow
+palette = 3=#666052
+palette = 11=#111313
+# blue
+palette = 4=#586065
+palette = 12=#586065
+# magenta
+palette = 5=#A04412
+palette = 13=#7D340C
+# cyan
+palette = 6=#767676
+palette = 14=#5B5D5D
+# white
+palette = 7=#362D29
+palette = 15=#0D0E0E
