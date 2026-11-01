@@ -10,7 +10,7 @@ SLUG="k3day"                         # zsh/<slug>.zsh, nvim/lua/plugins/<slug>.l
 MODE="light"                        # the COSMIC half this rice fills: dark or light
 RON="K3Day.ron"                      # desktop theme in cosmic/
 TERM_RON="K3Day-term.ron"            # terminal scheme in cosmic-term/
-BTOP="K3 Day"                         # btop/<name>.theme
+BTOP="K3Day"                         # btop/<name>.theme
 
 usage() {
     cat <<EOF
