@@ -137,7 +137,7 @@ carry it with pearl text on top.
 │   ├── K3Day.conf               # qt5ct / qt6ct colour scheme
 │   └── install.sh
 ├── starship
-│   ├── starship.toml            # prompt, palette colours, clock on the right
+│   ├── starship.toml            # prompt, palette colours
 │   └── install.sh
 ├── telegram
 │   ├── colors.tdesktop-theme    # Telegram Desktop colour scheme (source)
@@ -520,8 +520,7 @@ kitty and Alacritty have no such switch; include the other file instead.
 `starship/starship.toml` is close to the defaults with the palette declared
 once as `[palettes.k3day]` and used by name: the directory in ![#5B5D5D](https://placehold.co/12x12/5b5d5d/5b5d5d.png) `#5B5D5D`,
 the branch in ![#666052](https://placehold.co/12x12/666052/666052.png) `#666052`, ![#A04412](https://placehold.co/12x12/a04412/a04412.png) `#A04412` for a dirty tree, a ![#5E5E5E](https://placehold.co/12x12/5e5e5e/5e5e5e.png) `#5E5E5E` prompt
-character that turns ![#B03316](https://placehold.co/12x12/b03316/b03316.png) `#B03316` after a failed command, a dim `HH:MM` clock on
-the right. Modules it does not style keep their defaults, which use the ANSI
+character that turns ![#B03316](https://placehold.co/12x12/b03316/b03316.png) `#B03316` after a failed command. Modules it does not style keep their defaults, which use the ANSI
 slots the COSMIC Terminal scheme colours. `zsh/k3day.zsh` already runs
 `starship init`. `install.sh` backs up any existing `~/.config/starship.toml`
 to `starship.toml.bak`.
