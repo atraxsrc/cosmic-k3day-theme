@@ -43,7 +43,7 @@ flowchart LR
 - [x] `./icons/install.sh` for the **Cosmic-K3Day** icons, `./cosmic/install.sh` for fonts and the terminal look
 - [x] `./zsh/install.sh`, `./lsd/install.sh`, `./fastfetch/install.sh`
 - [x] Cursor: Oxygen-K3Day-Steel
-- [x] Wallpaper: `backgrounds/k3day-stardust.jpg`
+- [x] Wallpaper: `backgrounds/k3day-anime.png`
 - [ ] Screenshot for the README
 
 ## The baseline every rice shares
